@@ -70,7 +70,7 @@
                     </div>
 
                     <br/>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary" id="registerBtn">Register</button>
                     </form>
                 </div>
 
@@ -79,4 +79,6 @@
                 </div>
             </div>
     </div>
+
+    <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
