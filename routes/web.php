@@ -22,8 +22,11 @@ Route::post('/login', 'UserController@login');
 Route::get('/login', 'UserController@login_get');
 
 
-Route::get('/register', function () {
-    return view('register');
-});
+//Route::get('/register', function () {
+//    return view('register');
+//});
+
+Route::post('/register', 'UserController@register');
+Route::get('/register', 'UserController@register_get');
 
 Route::post('/logout', 'UserController@logout');

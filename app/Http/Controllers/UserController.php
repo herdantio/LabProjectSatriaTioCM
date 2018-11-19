@@ -67,4 +67,8 @@ class UserController extends Controller
         return redirect('/');
 
     }
+
+    public function register_get(){
+        return view('register');
+    }
 }
