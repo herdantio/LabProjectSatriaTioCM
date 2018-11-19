@@ -46,8 +46,9 @@ class UserPController extends Controller
 
         //validation fail, return
         if($validator -> fails()){
-            return redirect(back()->withErrors($validator)->withInput());
+            return redirect()->back()->withErrors($validator)->withInput();
         }
+        //dd('aaaa'); diamond dice, show tulisan ini kalau semua berjalan lancar dan stop
 
         $p = new UserP();
         $p->name = $req->name;
@@ -59,7 +60,6 @@ class UserPController extends Controller
         $destinationPath = public_path('images');
         $filename = $picture->getClientOriginalName();
         $picture->move($destinationPath, $filename);
-
         //folder UploadImagesUser ada di public
         $p->profile_picture = 'UploadImagesUser/.$filename';
 

@@ -20,7 +20,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Name</span>
                         </div>
-                        <input type="text" class="form-control" name="name" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="name">
+                        <input type="text" class="form-control" name="name" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="Enter Name">
                     </div>
 
                     <br/>
@@ -37,7 +37,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Password</span>
                         </div>
-                        <input type="password" class="form-control" name="password" id="passwordOriginal" aria-describedby="basic-addon2" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="passwordOriginal" aria-describedby="basic-addon2" placeholder="Enter Password">
                     </div>
 
                     <br/>
@@ -45,13 +45,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >ReType Password</span>
                         </div>
-                        <input type="password" class="form-control" name="password2" id="passwordReType" aria-describedby="basic-addon2" placeholder="Password">
+                        <input type="password" class="form-control" name="password2" id="passwordReType" aria-describedby="basic-addon2" placeholder="Re-type Password">
                     </div>
 
                     <br/>
                       <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2" >gender</span>
+                            <span class="input-group-text" id="basic-addon2" >Gender</span>
                         </div>
                         <select class="form-control" id="exampleFormControlSelect1" name="gender">
                             <option value="Male" >Male</option>
@@ -65,13 +65,19 @@
                         {{-- <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Photo</span>
                         </div> --}}
-                        <input type="file" class="custom-file-input" name="file" id="customFile">
+                        <input type="file" class="custom-file-input" name="picture" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
 
                     <br/>
                     <button type="submit" class="btn btn-primary" id="registerBtn">Register</button>
                     </form>
+
+                    <!--display error message-->
+                    @if($errors)
+                        <p>{{$errors->first()}}</p>
+                    @endif
+
                 </div>
 
                 <div class="col">
