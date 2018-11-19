@@ -75,22 +75,6 @@
 @section('content')
     <div class="container">
 
-            {{--<div class="center-vh">--}}
-            {{--<div id="login-box">--}}
-            {{--<div class="row">E-mail</div>--}}
-            {{--<div class="row">--}}
-            {{--<input type="text" class="full-w mb-10" name="email">--}}
-            {{--</div>--}}
-            {{--<div class="row">Password</div>--}}
-            {{--<div class="row">--}}
-            {{--<input type="password" class="full-w mb-10" name="password">--}}
-            {{--</div>--}}
-            {{--<div class="row text-center">--}}
-            {{--<button class="button">Login</button>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-
             <div class="row">
                 <div class="col">
 
