@@ -37,7 +37,7 @@ class UserPController extends Controller
     public function register(Request $req){
         $validator = Validator::make($req -> all(),[
                 'name' => 'required|min:5',
-                'email' => 'required|unique|email',
+                'email' => 'required|unique:users|email',
                 'password' => 'required|alpha_num|min:8',
                 'gender' => 'required',
                 'profile_picture' => 'required|image|mimetypes:image/jpeg,image/bmp,image/png'
