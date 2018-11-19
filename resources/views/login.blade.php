@@ -105,7 +105,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1" >Email</span>
                         </div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="basic-addon1" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="basic-addon1" placeholder="Enter email">
                     </div>
 
                     <br/>
@@ -113,7 +113,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Password</span>
                         </div>
-                        <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="Password">
                     </div>
 
                     <br/>
