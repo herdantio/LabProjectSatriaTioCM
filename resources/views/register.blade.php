@@ -65,7 +65,7 @@
                         {{-- <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Photo</span>
                         </div> --}}
-                        <input type="file" class="custom-file-input" name="file" id="customFile">
+                        <input type="file" class="custom-file-input" name="picture" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
 
