@@ -18,8 +18,8 @@ Route::get('/', function () {
 //Route::get('/login', function () {
 //    return view('login');
 //});
-Route::post('/login', 'UserController@login');
-Route::get('/login', 'UserController@login_get');
+Route::post('/login', 'UserPController@login');
+Route::get('/login', 'UserPController@login_get');
 
 
 //Route::get('/register', function () {

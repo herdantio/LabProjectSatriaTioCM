@@ -49,7 +49,7 @@ class UserController extends Controller
             return redirect(back()->withErrors($validator)->withInput());
         }
 
-        $p = new User();
+        $p = new UserP();
         $p->name = $req->name;
         $p->email = $req->email;
         $p->password = $req->password;
