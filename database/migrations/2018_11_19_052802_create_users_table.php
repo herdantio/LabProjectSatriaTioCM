@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->integer('password');
             $table->string('gender');
-            $table->string('profile_picture');
+            $table->string('profile_picture'); //string link ke directory
         });
     }
 
