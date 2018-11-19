@@ -20,7 +20,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Name</span>
                         </div>
-                        <input type="text" class="form-control" name="name" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="Enter Name">
+                        <input type="text" class="form-control" name="name" value="{{old('name')}}" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="Enter Name">
                     </div>
 
                     <br/>
@@ -29,7 +29,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1" >Email</span>
                         </div>
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="basic-addon1" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" value="{{old('email')}}" id="exampleInputEmail1" aria-describedby="basic-addon1" placeholder="Enter email">
                     </div>
 
                     <br/>
@@ -65,8 +65,8 @@
                         {{-- <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Photo</span>
                         </div> --}}
-                        <input type="file" class="custom-file-input" name="picture" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <input type="file" class="custom-file-input" name="picture" value="{{old('picture')}}" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose Picture...</label>
                     </div>
 
                     <br/>
