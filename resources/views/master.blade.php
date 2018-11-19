@@ -76,7 +76,7 @@
         @if(Auth::guest())
             <div class="float-col6 text-right">
                 <a href="/login"><p class="inline-block menu">Login</p></a>
-                <p class="inline-block menu">Register</p>
+                <a href="/register"><p class="inline-block menu">Register</p></a>
             </div>
         @else
             <div class="float-col6 text-right">

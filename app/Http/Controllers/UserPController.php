@@ -60,7 +60,7 @@ class UserPController extends Controller
         $filename = $picture->getClientOriginalName();
         $picture->move($destinationPath, $filename);
 
-        //$p->picture = 'images/'.$filename;
+        //folder UploadImagesUser ada di public
         $p->profile_picture = 'UploadImagesUser/.$filename';
 
         $p->save();
