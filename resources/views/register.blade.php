@@ -76,7 +76,7 @@
                     <!--display error message-->
                     <br/>
                     @if($errors)
-                        <p>{{$errors->first()}}</p>
+                       <font color="red"><p>{{$errors->first()}}</p></font>
                     @endif
 
                 </div>
