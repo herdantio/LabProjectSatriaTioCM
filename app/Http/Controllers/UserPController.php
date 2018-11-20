@@ -16,7 +16,7 @@ class UserPController extends Controller
         if($user){
             //if user is not null/does exist in database, go to home page but
             Auth::login($user);
-            return view('welcome');
+            return view('home');
         }
 
         //if fail, return login view
@@ -26,7 +26,7 @@ class UserPController extends Controller
     public function logout(){
         if(Auth::user()){
             Auth::logout();
-            return view('welcome');
+            return view('home');
         }
     }
 
