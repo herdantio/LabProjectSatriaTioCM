@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="col-6">
-                    <form action="/register" method="POST">
+                    <form action="/register" enctype="multipart/form-data" method="POST">
                         {{csrf_field()}}
                     <h1>Register Form</h1>
                     <br/>
