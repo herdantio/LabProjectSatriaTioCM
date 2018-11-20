@@ -37,7 +37,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Password</span>
                         </div>
-                        <input type="password" class="form-control" name="password" id="passwordOriginal" aria-describedby="basic-addon2" placeholder="Enter Password">
+                        <input type="password" class="form-control" name="password" value="{{old('password')}}" id="passwordOriginal" aria-describedby="basic-addon2" placeholder="Enter Password">
                     </div>
 
                     <br/>
@@ -45,7 +45,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >ReType Password</span>
                         </div>
-                        <input type="password" class="form-control" name="password2" id="passwordReType" aria-describedby="basic-addon2" placeholder="Re-type Password">
+                        <input type="password" class="form-control" name="password2" value="{{old('password2')}}" id="passwordReType" aria-describedby="basic-addon2" placeholder="Re-type Password">
                     </div>
 
                     <br/>
@@ -74,6 +74,7 @@
                     </form>
 
                     <!--display error message-->
+                    <br/>
                     @if($errors)
                         <p>{{$errors->first()}}</p>
                     @endif
