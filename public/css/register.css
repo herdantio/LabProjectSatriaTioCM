@@ -1,0 +1,8 @@
+.input-group-prepend {
+    width : 30%; /*adjust as needed*/
+}
+  
+.input-group-prepend span {
+    width:100%;
+    overflow: hidden;
+}
