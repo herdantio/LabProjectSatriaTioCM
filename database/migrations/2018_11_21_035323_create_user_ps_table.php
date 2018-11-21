@@ -14,11 +14,11 @@ class CreateUserPsTable extends Migration
 
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user_ps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->integer('password');
+            $table->string('password');
             $table->string('gender');
             $table->string('profile_picture'); //string link ke directory
             //$table->timestamps();
