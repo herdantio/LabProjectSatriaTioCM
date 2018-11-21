@@ -72,4 +72,9 @@ class UserPController extends Controller
     public function register_get(){
         return view('register');
     }
+
+    public function getPaginate(){
+        $users = UserP::Paginate(25);
+        return view('manageusers', compact('users'));
+    }
 }

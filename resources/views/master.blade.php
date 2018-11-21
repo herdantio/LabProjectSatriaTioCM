@@ -18,6 +18,8 @@
                 <a href="/logout"><p class="inline-block menu">Logout</p></a>
             </div>
         @endif
+<<<<<<< HEAD
+=======
     </div> --}}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
