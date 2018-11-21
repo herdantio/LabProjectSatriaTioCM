@@ -14,7 +14,7 @@
                 <div class="col-6">
                     <form action="/register" method="POST">
                         {{csrf_field()}}
-                    <h1>Login Form</h1>
+                    <h1>Register Form</h1>
                     <br/>
                     <div class="input-group">
                         <div class="input-group-prepend">
