@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class comments extends Model
+class Followed_Category extends Model
 {
     //
 }
