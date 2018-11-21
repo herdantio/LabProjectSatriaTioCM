@@ -56,10 +56,10 @@ class UserPController extends Controller
         $p->password = $req->password;
         $p->gender = $req->gender;
 
-        $picture = $req->file('profile_picture');
+        $profile_picture = $req->file('profile_picture');
         $destinationPath = public_path('UsersUploadedImage');
-        $filename = $picture->getClientOriginalName();
-        $picture->move($destinationPath, $filename);
+        $filename = $profile_picture->getClientOriginalName();
+        $profile_picture->move($destinationPath, $filename);
         //folder UploadImagesUser ada di public
         $p->profile_picture = 'UsersUploadedImage/'.$filename;
 
