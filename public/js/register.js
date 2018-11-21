@@ -5,7 +5,7 @@ let registerBtn = document.getElementById("registerBtn")
 
 function validate(){
     if(password!=password2){
-        alert("Password mus be the same")
+        alert("Password must be the same")
         event.preventDefault()
     }
 }

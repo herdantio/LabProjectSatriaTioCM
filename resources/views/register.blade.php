@@ -73,7 +73,7 @@
                     </div>
 
                     <br/>
-                    <button type="submit" class="btn btn-primary" id="registerBtn" onclick="validate">Register</button>
+                    <button type="submit" class="btn btn-primary" id="registerBtn" onclick="validate()">Register</button>
                     </form>
 
                     <!--display error message-->
