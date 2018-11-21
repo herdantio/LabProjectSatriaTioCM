@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+//namespace App
 
 use App\UserP;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class UserPController extends Controller
         }
         //dd('aaaa'); diamond dice, show tulisan ini kalau semua berjalan lancar dan stop
 
-        $p = new UserP();
+        $p = new \App\UserP();
         $p->name = $req->name;
         $p->email = $req->email;
         $p->password = $req->password;
