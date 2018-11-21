@@ -46,7 +46,6 @@
         </ul>
     </div>
     </nav>
->>>>>>> 835f44d83aca9d9f1e41a17160152fc803feda43
 
     <div class="container ptb-20">
         @yield('content')
