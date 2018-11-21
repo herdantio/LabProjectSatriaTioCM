@@ -65,7 +65,7 @@
                         {{-- <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2" >Photo</span>
                         </div> --}}
-                        <input type="file" class="custom-file-input" name="picture" value="{{old('picture')}}" accept="image/*" id="customFile">
+                        <input type="file" class="custom-file-input" name="profile_picture" value="{{old('picture')}}" accept="image/*" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose Picture...</label>
                     </div>
 
