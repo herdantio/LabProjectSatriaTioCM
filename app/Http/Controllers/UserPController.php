@@ -3,21 +3,23 @@
 namespace App\Http\Controllers;
 //namespace App
 
+use App\User;
 use App\UserP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserPController extends Controller
 {
     public function login(Request $req){
         //Eloquent, Laravel equivalent of LINQ
-        $user = User::where('email', '=', $req->email)
+        $userp = UserP::where('email', '=', $req->email)
             ->where('password', '=', $req->password)
             ->first(); //to ensure it only returns an object, not array of object with 1 object
 
-        if($user){
+        if($userp){
             //if user is not null/does exist in database, go to home page but
-            Auth::login($user);
+            Auth::login($userp);
             return view('home');
         }
 
@@ -60,13 +62,17 @@ class UserPController extends Controller
         $p->gender = $req->gender;
 
         $profile_picture = $req->file('profile_picture');
-        $destinationPath = public_path('UsersUploadedImage');
+        $destinationPath = public_path('UsersUploadedImage'); //folder UsersUploadedImage ada di public
         $filename = $profile_picture->getClientOriginalName();
         $profile_picture->move($destinationPath, $filename);
-        //folder UsersUploadedImage ada di public
         $p->profile_picture = 'UsersUploadedImage/'.$filename;
 
         $p->save();
+
+        //make User equivalent
+
+
+        //return to home page
         return redirect('/');
 
     }

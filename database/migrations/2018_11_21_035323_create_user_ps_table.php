@@ -21,7 +21,7 @@ class CreateUserPsTable extends Migration
             $table->string('password');
             $table->string('gender');
             $table->string('profile_picture'); //string link ke directory
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

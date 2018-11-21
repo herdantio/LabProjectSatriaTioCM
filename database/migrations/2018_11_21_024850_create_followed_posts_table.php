@@ -17,7 +17,7 @@ class CreateFollowedPostsTable extends Migration
             $table->increments('id');
             $table->integer('post_id');
             $table->integer('follower_id');//userP
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

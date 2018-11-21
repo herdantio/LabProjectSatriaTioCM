@@ -18,7 +18,7 @@ class CreateHeaderTransactionsTable extends Migration
             $table->integer('buyer_id'); //userP
             $table->datetime('purchase_time');
             $table->integer('total_price');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

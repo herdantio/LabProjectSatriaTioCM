@@ -21,7 +21,7 @@ class CreatePostImagesTable extends Migration
             $table->integer('price');
             $table->string('picture'); //string link ke directory
             //$table->binary('image');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

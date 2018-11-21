@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('postID');
             $table->integer('commenterID');
             $table->string('commentText', 250);
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

@@ -17,7 +17,7 @@ class CreateDetailTransactionsTable extends Migration
             $table->increments('id');
             $table->integer('header_id');
             $table->integer('post_id');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
