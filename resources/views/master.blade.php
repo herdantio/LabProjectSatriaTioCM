@@ -90,5 +90,7 @@
     <div id="footer">
         Made using Laravel 5.6
     </div>
+
+    <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
 </body>
 </html>

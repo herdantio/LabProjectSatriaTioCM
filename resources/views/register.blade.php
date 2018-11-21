@@ -87,5 +87,5 @@
             </div>
     </div>
 
-    <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
+    
 @endsection
