@@ -83,7 +83,7 @@
                 <a href="/logout"><p class="inline-block menu">Logout</p></a>
             </div>
         @endif
-    </div>
+
     <div class="container ptb-20">
         @yield('content')
     </div>

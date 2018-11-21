@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //Route::get('/login', function () {
@@ -25,8 +25,8 @@ Route::get('/login', 'UserPController@login_get');
 //Route::get('/register', function () {
 //    return view('register');
 //});
-
 Route::post('/register', 'UserPController@register');
 Route::get('/register', 'UserPController@register_get');
-
 Route::post('/logout', 'UserPController@logout');
+
+Route::get('/manageUsers', 'UserPController@getPaginate');
