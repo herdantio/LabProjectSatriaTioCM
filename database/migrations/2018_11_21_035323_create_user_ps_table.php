@@ -18,7 +18,7 @@ class CreateUserPsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->integer('password');
+            $table->string('password');
             $table->string('gender');
             $table->string('profile_picture'); //string link ke directory
             //$table->timestamps();
