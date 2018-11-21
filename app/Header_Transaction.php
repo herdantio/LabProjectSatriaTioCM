@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Header_Transaction extends Model
 {
     //
+    public $timestamps = false;
 }
