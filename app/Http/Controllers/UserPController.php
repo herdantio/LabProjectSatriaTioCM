@@ -40,7 +40,8 @@ class UserPController extends Controller
                 'email' => 'required|unique:users|email',
                 'password' => 'required|alpha_num|min:8',
                 'gender' => 'required',
-                'profile_picture' => 'required|image|mimetypes:image/jpeg,image/bmp,image/png'
+                'profile_picture' => 'required|image|mimes:jpeg,jpg,png'
+                //'profile_picture' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png'
             ]
         );
 
