@@ -30,4 +30,9 @@ Route::get('/register', 'UserController@register_get');
 Route::get('/logout', 'UserController@logout');
 
 Route::get('/manageUsers', 'UserController@manageUsers');
-Route::get('/profile', 'UserController@getUserData');
+Route::get('/manageUsers/{id}', 'UserController@edit');
+Route::put('/edituser', 'UserController@updateAdmin');
+
+Route::get('/profile', 'UserController@userProfile');
+Route::put('/profile', 'UserController@updateProfile');
+
