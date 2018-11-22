@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPsTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,20 @@ class CreateUserPsTable extends Migration
 
     public function up()
     {
-        Schema::create('user_ps', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('gender');
             $table->string('profile_picture'); //string link ke directory
             $table->timestamps();
+            $table->rememberToken();
+
+            //add these lines to app/providers/AppServiceProvider.php
+            //add this to use lines : use Illuminate\Support\Facades\Schema;
+            //under boot function   : Schema::defaultStringLength(191);
+
         });
     }
 
@@ -32,6 +38,6 @@ class CreateUserPsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_ps');
+        Schema::dropIfExists('users');
     }
 }

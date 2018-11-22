@@ -18,15 +18,15 @@ Route::get('/', function () {
 //Route::get('/login', function () {
 //    return view('login');
 //});
-Route::post('/login', 'UserPController@login');
-Route::get('/login', 'UserPController@login_get');
+Route::post('/login', 'UserController@login');
+Route::get('/login', 'UserController@login_get');
 
 
 //Route::get('/register', function () {
 //    return view('register');
 //});
-Route::post('/register', 'UserPController@register');
-Route::get('/register', 'UserPController@register_get');
-Route::post('/logout', 'UserPController@logout');
+Route::post('/register', 'UserController@register');
+Route::get('/register', 'UserController@register_get');
+Route::post('/logout', 'UserController@logout');
 
-Route::get('/manageUsers', 'UserPController@getPaginate');
+Route::get('/manageUsers', 'UserController@getPaginate');

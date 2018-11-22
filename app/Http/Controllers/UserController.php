@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 //namespace App
 
 use App\User;
-use App\UserP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
-class UserPController extends Controller
+class UserController extends Controller
 {
     public function login(Request $req){
         //Eloquent, Laravel equivalent of LINQ
-        $userp = UserP::where('email', '=', $req->email)
+        $user = User::where('email', '=', $req->email)
             ->where('password', '=', $req->password)
             ->first(); //to ensure it only returns an object, not array of object with 1 object
 
-        if($userp){
+        if($user){
             //if user is not null/does exist in database, go to home page but
-            Auth::login($userp);
+            Auth::login($user);
             return view('home');
         }
 
@@ -41,7 +40,7 @@ class UserPController extends Controller
     public function register(Request $req){
         $validator = Validator::make($req -> all(),[
                 'name' => 'required|min:5',
-                'email' => 'required|unique:user_ps|email',
+                'email' => 'required|unique:users|email',
                 'password' => 'required|alpha_num|min:8',
                 'gender' => 'required',
                 'profile_picture' => 'required|image|mimes:jpeg,jpg,png'
@@ -55,7 +54,7 @@ class UserPController extends Controller
         }
         //dd('aaaa'); diamond dice, show tulisan ini kalau semua berjalan lancar dan stop
 
-        $p = new \App\UserP();
+        $p = new User();
         $p->name = $req->name;
         $p->email = $req->email;
         $p->password = $req->password;
