@@ -34,7 +34,13 @@ class UserController extends Controller
     }
 
     public function login_get(){
+        //only redirects to login page
         return view('login');
+    }
+
+    public function getUserData(){
+        $u = Auth::user();
+        return view('profile', compact('u'));
     }
 
     public function register(Request $req){
@@ -77,10 +83,11 @@ class UserController extends Controller
     }
 
     public function register_get(){
+        //only redirect to register page
         return view('register');
     }
 
-    public function getPaginate(){
+    public function manageUsers(){
         $users = UserP::Paginate(25);
         return view('manageusers', compact('users'));
     }

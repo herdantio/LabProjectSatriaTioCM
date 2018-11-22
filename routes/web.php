@@ -29,4 +29,5 @@ Route::post('/register', 'UserController@register');
 Route::get('/register', 'UserController@register_get');
 Route::post('/logout', 'UserController@logout');
 
-Route::get('/manageUsers', 'UserController@getPaginate');
+Route::get('/manageUsers', 'UserController@manageUsers');
+Route::get('/profile', 'UserController@getUserData');
