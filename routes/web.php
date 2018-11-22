@@ -27,7 +27,7 @@ Route::get('/login', 'UserController@login_get');
 //});
 Route::post('/register', 'UserController@register');
 Route::get('/register', 'UserController@register_get');
-Route::post('/logout', 'UserController@logout');
+Route::get('/logout', 'UserController@logout');
 
 Route::get('/manageUsers', 'UserController@manageUsers');
 Route::get('/profile', 'UserController@getUserData');
