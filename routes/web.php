@@ -29,10 +29,11 @@ Route::post('/login', 'UserController@login');
 Route::get('/login', 'UserController@login_get');
 Route::get('/logout', 'UserController@logout');
 
+Route::get('/profile', 'UserController@userProfile');
+Route::put('/profile', 'UserController@updateProfile');
+
 Route::get('/manageUsers', 'UserController@manageUsers');
 Route::get('/manageUsers/{id}', 'UserController@edit');
 Route::put('/edituser', 'UserController@updateAdmin');
 
-Route::get('/profile', 'UserController@userProfile');
-Route::put('/profile', 'UserController@updateProfile');
 
