@@ -106,7 +106,7 @@ class UserController extends Controller
         return redirect('/profile');
     }
 
-    //for Admin pages, manageuser and edituser
+    //for Admin pages: manageuser and edituser
     public function manageUsers(){
         $users = UserP::Paginate(25);
         return view('manageusers', compact('users'));
@@ -157,6 +157,7 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    //only redirects pages
     public function register_getPage(){
         //only redirect to register page
         return view('register');
