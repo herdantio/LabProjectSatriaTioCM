@@ -115,7 +115,7 @@ class UserController extends Controller
         $u = User::find($id);
         return view('edituser', compact('u'));
     }
-    public function updateAdmin(Request $req, $id){
+    public function updateByAdmin(Request $req, $id){
         $validator = Validator::make($req -> all(),[
                 'name' => 'required|min:5',
                 'email' => 'required|unique:users|email',
@@ -146,15 +146,22 @@ class UserController extends Controller
 
         $u->save();
 
-        //return to home page
+        //return to profile page
         return redirect('/profile');
     }
+    public function deleteUser($id){
+        //User::destroy($id);
+        $u = User::find($id);
+        $u->delete();
 
-    public function register_get(){
+        return redirect('/');
+    }
+
+    public function register_getPage(){
         //only redirect to register page
         return view('register');
     }
-    public function login_get(){
+    public function login_getPage(){
         //only redirects to login page
         return view('login');
     }
