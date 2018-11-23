@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Post_Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class Post_Image_Controller extends Controller
 {
      /*get*/public function insertPost() {return view('insertpost');}
      /*post*/ public function postImage(Request $req){
-         $validator = validator::make($req -> all(),[
+         $validator = Validator::make($req -> all(),[
              //Validasi
              'title' => 'required|max:200|min:20,',
              'caption' => 'required',
