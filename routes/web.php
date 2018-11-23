@@ -36,4 +36,5 @@ Route::get('/manageUsers', 'UserController@manageUsers');
 Route::get('/manageUsers/{id}', 'UserController@edit');
 Route::put('/edituser', 'UserController@updateAdmin');
 
-
+Route::get('/insertPost', 'Post_Image_Controller@insertPost');
+Route::post('/insertPost', 'Post_Image_Controller@updateAdmin');

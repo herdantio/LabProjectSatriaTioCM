@@ -55,10 +55,10 @@ class UserController extends Controller
         $u->gender = $req->gender;
 
         $profile_picture = $req->file('profile_picture');
-        $destinationPath = public_path('UsersUploadedImage'); //folder UsersUploadedImage ada di public
+        $destinationPath = public_path('PostsUploadedImage'); //folder UsersUploadedImage ada di public
         $filename = $profile_picture->getClientOriginalName();
         $profile_picture->move($destinationPath, $filename);
-        $u->profile_picture = 'UsersUploadedImage/'.$filename;
+        $u->profile_picture = 'PostsUploadedImage/'.$filename;
 
         $u->save();
 
