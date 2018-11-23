@@ -41,7 +41,7 @@ class Post_Image_Controller extends Controller
          $i->price = $u->price;
 
          $post_picture = $req->file('post_image');
-         $destinationPath = public_path('UsersPostedImage'); //folder UsersUploadedImage ada di public
+         $destinationPath = public_path('UsersPostedImage'); //folder UsersPostedImage ada di public
          $filename = $post_picture->getClientOriginalName();
          $post_picture->move($destinationPath, $filename);
          $i->picture = 'UsersPostedImage/'.$filename;
