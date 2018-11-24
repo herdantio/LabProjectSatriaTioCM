@@ -11,10 +11,10 @@
 |
 */
 
-//halaman paling pertama
-Route::get('/', function () {
-    return view('home');
-});
+
+//Route::get('/', function () {
+//    return view('home', 'PostImageController@homePosts');
+//});
 
 //Route::get('/login', function () {
 //    return view('login');
@@ -23,6 +23,9 @@ Route::get('/', function () {
 //Route::get('/register', function () {
 //    return view('register');
 //});
+
+//home page
+Route::get('/', 'PostImageController@home_getPage');
 
 Route::post('/register', 'UserController@register');
 Route::get('/register', 'UserController@register_getPage');

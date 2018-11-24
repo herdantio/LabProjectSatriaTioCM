@@ -116,7 +116,7 @@ class UserController extends Controller
 
     //for Admin pages: manageuser and edituser
     public function manageUsers(){
-        $users = UserP::Paginate(25);
+        $users = User::Paginate(25);
         return view('manageusers', compact('users'));
     }
     public function edit($id){

@@ -14,6 +14,10 @@ class Post_Image_Controller extends Controller
         //only redirects to insertpost page
         return view('insertpost');
     }
+     public function home_getPage(){
+         $p = Post_Image::paginate(10);
+         return view('home', compact('p'));
+     }
 
      /*post*/ public function postImage(Request $req){ //store
          $validator = validator::make($req -> all(),[
