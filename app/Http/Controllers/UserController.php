@@ -17,8 +17,14 @@ class UserController extends Controller
             ->first(); //to ensure it only returns an object, not array of object with 1 object
 
         if($user){
-            //if user is not null/does exist in database, go to home page but
+            //if user is not null/does exist in database, go to home page
             Auth::login($user);
+
+            //if admin returns to ... page (need to discuss)
+            if(Auth::user()->isAdmin == 1){    //or (Auth::user()->isAdmin == true)
+                return view('home');
+            }
+
             return view('home');
         }
 
@@ -53,6 +59,7 @@ class UserController extends Controller
         $u->email = $req->email;
         $u->password = $req->password;
         $u->gender = $req->gender;
+        $u->isAdmin = false;
 
         $profile_picture = $req->file('profile_picture');
         $destinationPath = public_path('PostsUploadedImage'); //folder UsersUploadedImage ada di public
@@ -93,6 +100,7 @@ class UserController extends Controller
         $u->email = $req->email;
         $u->password = $req->password;
         $u->gender = $req->gender;
+        $u->isAdmin = Auth::user()->isAdmin;
 
         $profile_picture = $req->file('profile_picture');
         $destinationPath = public_path('UsersUploadedImage'); //folder UsersUploadedImage ada di public
@@ -137,6 +145,7 @@ class UserController extends Controller
         $u->email = $req->email;
         $u->password = $req->password;
         $u->gender = $req->gender;
+        $u->isAdmin = Auth::user()->isAdmin;
 
         $profile_picture = $req->file('profile_picture');
         $destinationPath = public_path('UsersUploadedImage'); //folder UsersUploadedImage ada di public

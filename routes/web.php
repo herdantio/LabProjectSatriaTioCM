@@ -23,6 +23,7 @@ Route::get('/', function () {
 //Route::get('/register', function () {
 //    return view('register');
 //});
+
 Route::post('/register', 'UserController@register');
 Route::get('/register', 'UserController@register_getPage');
 Route::post('/login', 'UserController@login');
@@ -32,10 +33,13 @@ Route::get('/logout', 'UserController@logout');
 Route::get('/profile', 'UserController@userProfile');
 Route::put('/profile', 'UserController@updateProfile');
 
-Route::get('/manageUsers', 'UserController@manageUsers');
-Route::get('/manageUsers/{id}', 'UserController@edit');
-Route::put('/editUser/{id}', 'UserController@updateByAdmin');
-Route::get('/deleteUser/{id}', 'UserController@deleteUser');
-
 Route::get('/insertPost', 'Post_Image_Controller@insertPost_getPage');
 Route::post('/insertPost', 'Post_Image_Controller@updateImage');
+
+//admin only pages
+Route::get('/manageUsers', 'UserController@manageUsers') -> middleware('admin');
+Route::get('/manageUsers/{id}', 'UserController@edit') -> middleware('admin');
+Route::put('/editUser/{id}', 'UserController@updateByAdmin') -> middleware('admin');
+Route::get('/deleteUser/{id}', 'UserController@deleteUser') -> middleware('admin');
+
+
