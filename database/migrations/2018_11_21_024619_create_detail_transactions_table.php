@@ -15,8 +15,8 @@ class CreateDetailTransactionsTable extends Migration
     {
         Schema::create('detail__transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('header_id');
-            $table->integer('post_id');
+            $table->integer('header_id')->references('id')->on('header_transactions');
+            $table->integer('post_id')->references('id')->on('post_images');
             $table->timestamps();
         });
     }

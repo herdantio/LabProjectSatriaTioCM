@@ -15,8 +15,7 @@ class CreateHeaderTransactionsTable extends Migration
     {
         Schema::create('header__transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('buyer_id'); //userP
-            $table->datetime('purchase_time');
+            $table->integer('buyer_id')->references('id')->on('users'); //user
             $table->integer('total_price');
             $table->timestamps();
         });

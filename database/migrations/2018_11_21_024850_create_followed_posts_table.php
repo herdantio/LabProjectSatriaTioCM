@@ -15,8 +15,8 @@ class CreateFollowedPostsTable extends Migration
     {
         Schema::create('followed__posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id');
-            $table->integer('follower_id');//userP
+            $table->integer('post_id')->references('id')->on('post_images');
+            $table->integer('follower_id')->references('id')->on('users');//user
             $table->timestamps();
         });
     }

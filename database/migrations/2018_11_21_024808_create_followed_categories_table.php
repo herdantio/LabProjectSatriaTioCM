@@ -15,8 +15,8 @@ class CreateFollowedCategoriesTable extends Migration
     {
         Schema::create('followed__categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('user_id')->references('id')->on('users');
+            $table->integer('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

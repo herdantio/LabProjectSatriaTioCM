@@ -17,7 +17,7 @@ class CreatePostImagesTable extends Migration
             $table->increments('id');
             $table->string('title', 100);
             $table->string('caption', 100);
-            $table->integer('owner_id'); //userP
+            $table->integer('owner_id')->references('id')->on('users'); //user
             $table->integer('price');
             $table->string('picture'); //string link ke directory
             //$table->binary('image');

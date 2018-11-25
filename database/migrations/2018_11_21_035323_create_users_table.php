@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
 
             //add these lines to app/providers/AppServiceProvider.php
-            //add this to use lines : use Illuminate\Support\Facades\Schema;
-            //under boot function   : Schema::defaultStringLength(191);
+            //add this to use lines   : use Illuminate\Support\Facades\Schema;
+            //under boot function add : Schema::defaultStringLength(191);
 
         });
     }
