@@ -42,7 +42,7 @@ class Post_Image_Controller extends Controller
          $i->title = $req->title;
          $i->category = $req->category;
          $i->owner_id = $u->id;
-         $i->price = $u->price;
+         $i->price = $req->price;
 
          $post_picture = $req->file('post_image');
          $destinationPath = public_path('UsersPostedImage'); //folder UsersPostedImage ada di public
@@ -54,8 +54,12 @@ class Post_Image_Controller extends Controller
          return redirect('/');
      }
 
+     public function edit($id){
+         $p = Post_Image::find($id);
+         return view('updatepost', compact('p'));
+     }
      public function updateImage(Request $req, $id){
-         $validator = validator::make($req -> all(),[
+         $validator = Validator::make($req -> all(),[
                  //Validasi
                  'title' => 'required|max:200|min:20,',
                  'caption' => 'required',
@@ -77,7 +81,7 @@ class Post_Image_Controller extends Controller
          $i->title = $req->title;
          $i->category = $req->category;
          $i->owner_id = $u->id;
-         $i->price = $u->price;
+         $i->price = $req->price;
 
          $post_picture = $req->file('post_image');
          $destinationPath = public_path('UsersPostedImage'); //folder UsersUploadedImage ada di public
@@ -97,4 +101,30 @@ class Post_Image_Controller extends Controller
 
         return redirect('/');
     }
+
+     public function search(Request $req){
+         //search post images by title or description in home page
+         $search = $req->get('keyword');
+
+         //select * from Post_Image where name LIKE %<string to search>%
+         $posts = Post_Image::where('title', 'LIKE', '%'.$search.'%') -> paginate(10);
+         $posts->appends($req->only('keyword')); //append URL so only relevant search appear
+
+         return view('home', compact('posts'));
+     }
+
+     public function myposts_getPage(){
+         $id = Auth::user()->id;
+
+         //select * from Pet where name LIKE %<string to search>%
+         $posts = Post_Image::where('owner_id', 'LIKE', $id) -> paginate(10);
+
+         return view('myposts', compact('posts'));
+     }
+
+     public function viewDetail($id){
+         $p = Post_Image::find($id);
+         return view('postdetail', compact('p'));
+     }
+
 }

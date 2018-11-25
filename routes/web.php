@@ -27,6 +27,7 @@
 //home page
 Route::get('/', 'PostImageController@home_getPage');
 
+//accessible to all users
 Route::post('/register', 'UserController@register');
 Route::get('/register', 'UserController@register_getPage');
 Route::post('/login', 'UserController@login');
@@ -37,7 +38,11 @@ Route::get('/profile', 'UserController@userProfile');
 Route::put('/profile', 'UserController@updateProfile');
 
 Route::get('/insertPost', 'Post_Image_Controller@insertPost_getPage');
-Route::post('/insertPost', 'Post_Image_Controller@updateImage');
+Route::post('/insertPost', 'Post_Image_Controller@postImage');
+Route::get('/updatepost/{id}','Post_Image_Controller@edit');
+Route::put('/updatepost/{id}','Post_Image_Controller@updateImage');
+
+Route::get('/postdetail/{id}', 'Post_Image_Controller@viewDetail');
 
 //admin only pages
 Route::get('/manageUsers', 'UserController@manageUsers') -> middleware('admin');
@@ -45,4 +50,8 @@ Route::get('/manageUsers/{id}', 'UserController@edit') -> middleware('admin');
 Route::put('/editUser/{id}', 'UserController@updateByAdmin') -> middleware('admin');
 Route::get('/deleteUser/{id}', 'UserController@deleteUser') -> middleware('admin');
 
-
+Route::get('/managecategories', 'CategoryController@manage_getPage');
+Route::get('/insertcategories', 'CategoryController@insert_getPage');
+Route::post('/insertcategories', 'CategoryController@add');
+Route::get('/updatecategories/{id}', 'CategoryController@edit');
+Route::put('/updatecategories/{id}', 'CategoryController@update');
