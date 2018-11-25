@@ -24,7 +24,6 @@ class CategoryController extends Controller
     public function insert_getPage(){
         return view('insertcategories');
     }
-
     public function add(Request $req){
         $validator = Validator::make($req -> all(),[
                 'name' => 'required|min:3|max:20',
@@ -67,6 +66,6 @@ class CategoryController extends Controller
         $c = Category::find($id);
         $c->delete();
 
-        return redirect('/');
+        return redirect('/managecategories');
     }
 }
