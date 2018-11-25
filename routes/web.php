@@ -25,7 +25,7 @@
 //});
 
 //home page
-Route::get('/', 'PostImageController@home_getPage');
+Route::get('/', 'PostImageController@home_getPage'); //guest can go this far only
 
 //accessible to all users
 Route::post('/register', 'UserController@register');
@@ -37,12 +37,14 @@ Route::get('/logout', 'UserController@logout');
 Route::get('/profile', 'UserController@userProfile');
 Route::put('/profile', 'UserController@updateProfile');
 
-Route::get('/insertPost', 'Post_Image_Controller@insertPost_getPage');
-Route::post('/insertPost', 'Post_Image_Controller@postImage');
+Route::get('/insertpost', 'Post_Image_Controller@insertPost_getPage');
+Route::post('/insertpost', 'Post_Image_Controller@postImage');
 //Route::get('/updatepost/{id}','Post_Image_Controller@edit');
 //Route::put('/updatepost/{id}','Post_Image_Controller@updateImage');
 
 Route::get('/postdetail/{id}', 'Post_Image_Controller@viewDetail');
+Route::get('/deletepost/{id}', 'Post_Image_Controller@deleteImage');
+Route::post('/postdetail/{post_id}', 'CommentController@addComment');
 
 //admin only pages
 Route::get('/manageusers', 'UserController@manageUsers') -> middleware('admin');
