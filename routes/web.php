@@ -25,10 +25,10 @@
 //});
 
 //home page
-Route::get('/', 'PostImageController@home_getPage'); //guest can go this far only
+Route::get('/', 'PostImageController@home_getPage');
 
 //accessible to all users
-Route::post('/register', 'UserController@register');
+Route::post('/register', 'UserController@register'); //guest can go this far only
 Route::get('/register', 'UserController@register_getPage');
 Route::post('/login', 'UserController@login');
 Route::get('/login', 'UserController@login_getPage');
@@ -52,9 +52,9 @@ Route::get('/manageusers/{id}', 'UserController@edit') -> middleware('admin');
 Route::put('/edituser/{id}', 'UserController@updateByAdmin') -> middleware('admin');
 Route::get('/deleteuser/{id}', 'UserController@deleteUser') -> middleware('admin');
 
-Route::get('/managecategories', 'CategoryController@manage_getPage');
-Route::get('/insertcategories', 'CategoryController@insert_getPage');
-Route::post('/insertcategories', 'CategoryController@add');
-Route::get('/updatecategories/{id}', 'CategoryController@edit');
-Route::put('/updatecategories/{id}', 'CategoryController@update');
-Route::get('/deletecategories/{id}', 'CategoryController@delete');
+Route::get('/managecategories', 'CategoryController@manage_getPage') -> middleware('admin');
+Route::get('/insertcategories', 'CategoryController@insert_getPage') -> middleware('admin');
+Route::post('/insertcategories', 'CategoryController@add') -> middleware('admin');
+Route::get('/updatecategories/{id}', 'CategoryController@edit') -> middleware('admin');
+Route::put('/updatecategories/{id}', 'CategoryController@update') -> middleware('admin');
+Route::get('/deletecategories/{id}', 'CategoryController@delete') -> middleware('admin');
