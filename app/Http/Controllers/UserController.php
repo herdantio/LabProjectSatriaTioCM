@@ -76,7 +76,13 @@ class UserController extends Controller
     //for user pages, profile
     public function userProfile(){
         $u = Auth::user();
-        return view('profile', compact('u'));
+
+        if($u){
+            return view('profile', compact('u'));
+        }
+        else{
+            return view('home');
+        }
     }
     public function updateProfile(Request $req){
         $validator = Validator::make($req -> all(),[

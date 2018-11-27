@@ -1,7 +1,7 @@
 <html>
 <head>
     <link href = {{ asset("bootstrap/css/bootstrap.min.css") }} rel="stylesheet"/>
-
+    <link href = {{ asset("css/menubar.css") }} rel="stylesheet"/>
 </head>
 <body>
     {{-- <div id="header">
@@ -43,12 +43,39 @@
                     <a class="nav-link" href="/register">Register</a>
                 </li>
         @else
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile">Hello, {{Auth::user()->name}}</a>
+            @if(auth()->user()->isAdmin == 1)
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/manageusers">Manage User</a>
+                        <a class="dropdown-item" href="managecategories">Manage Categories</a>
+                    </div>
                 </li>
-                 <li class="nav-item">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        View
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">View All Transactions</a>
+                    </div>
+                </li>
+            @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">My Post</a>
+                </li>
+                <li class="nav-item">
+                    {{--<img class="nav-link" src={{ asset("UsersUploadedImage/bootstrap-stack.png") }} id="img-logo" class="img-thumbnail">--}}
+                    <a class="nav-link" href="/profile">{{Auth::user()->name}}</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                  </li>
+
         @endif
 
         </ul>
@@ -58,10 +85,12 @@
     <div class="container ptb-20">
         @yield('content')
     </div>
-    <div id="footer">
-        Made using Laravel 5.6
-    </div>
+    {{--<div id="footer">--}}
+        {{--Made using Laravel 5.6--}}
+    {{--</div>--}}
 
     <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
+    <script src={{asset("js/jquery-3.2.1.slim.min.js")}} crossorigin="anonymous"></script>
+    <script src={{asset("bootstrap/js/bootstrap.min.js")}}></script>
 </body>
 </html>
