@@ -90,6 +90,7 @@
     {{--</div>--}}
 
     <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/profile.js') }}"></script>
     <script src={{asset("js/jquery-3.2.1.slim.min.js")}} crossorigin="anonymous"></script>
     <script src={{asset("bootstrap/js/bootstrap.min.js")}}></script>
 </body>

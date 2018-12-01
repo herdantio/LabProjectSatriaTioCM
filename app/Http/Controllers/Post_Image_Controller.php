@@ -93,8 +93,8 @@ class Post_Image_Controller extends Controller
          return redirect('/');
      }
 
-     public function deleteImage($id){
-         $p = Post_Image::find($id);
+     public function deleteImage($post_id){
+         $p = Post_Image::find($post_id);
 
         //can only be deleted by the owner
          if(Auth::user()->id != $p->owner_id){
@@ -120,16 +120,17 @@ class Post_Image_Controller extends Controller
      public function myposts_getPage(){
          $id = Auth::user()->id;
 
-         //select * from Pet where name LIKE %<string to search>%
+         //select * from Post_Image where name LIKE %<string to search>%
          $posts = Post_Image::where('owner_id', 'EQUALS', $id) -> paginate(10);
          //$posts = Post_Image::where('owner_id', '=', $id) -> paginate(10);
 
          return view('myposts', compact('posts'));
      }
 
-     public function viewDetail($id){
-         $p = Post_Image::find($id);
-         return view('postdetail', compact('p'));
+     public function viewDetail($post_id){
+         $post = Post_Image::find($post_id);
+         $comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
+         return view('postdetail', compact('post', 'comments'));
      }
 
 }
