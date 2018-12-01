@@ -28,10 +28,10 @@
 Route::get('/', 'PostImageController@home_getPage');
 
 //accessible to all users
-Route::post('/register', 'UserController@register'); //guest can go this far only
+Route::post('/register', 'UserController@register');
 Route::get('/register', 'UserController@register_getPage');
 Route::post('/login', 'UserController@login');
-Route::get('/login', 'UserController@login_getPage');
+Route::get('/login', 'UserController@login_getPage'); //guest can go this far only
 Route::get('/logout', 'UserController@logout');
 
 Route::get('/profile', 'UserController@userProfile');
@@ -42,8 +42,8 @@ Route::post('/insertpost', 'Post_Image_Controller@postImage');
 //Route::get('/updatepost/{id}','Post_Image_Controller@edit');
 //Route::put('/updatepost/{id}','Post_Image_Controller@updateImage');
 
-Route::get('/postdetail/{id}', 'Post_Image_Controller@viewDetail');
-Route::get('/deletepost/{id}', 'Post_Image_Controller@deleteImage');
+Route::get('/postdetail/{post_id}', 'Post_Image_Controller@viewDetail');
+Route::get('/deletepost/{post_id}', 'Post_Image_Controller@deleteImage');
 Route::post('/postdetail/{post_id}', 'CommentController@addComment');
 
 //admin only pages
@@ -58,3 +58,4 @@ Route::post('/insertcategories', 'CategoryController@add') -> middleware('admin'
 Route::get('/updatecategories/{id}', 'CategoryController@edit') -> middleware('admin');
 Route::put('/updatecategories/{id}', 'CategoryController@update') -> middleware('admin');
 Route::get('/deletecategories/{id}', 'CategoryController@delete') -> middleware('admin');
+Route::get('/viewalltransactions', 'TransactionController@viewAll_getPage') -> middleware('admin');
