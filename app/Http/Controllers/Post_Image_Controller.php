@@ -111,7 +111,7 @@ class Post_Image_Controller extends Controller
          $search = $req->get('keyword');
 
          //select * from Post_Image where name LIKE %<string to search>%
-         $posts = Post_Image::where('title', 'LIKE', '%'.$search.'%') -> paginate(10);
+         $posts = Post_Image::where('title', 'LIKE', '%'.$search.'%', 'AND', 'caption', 'LIKE', '%'.$search.'%') -> paginate(10);
          $posts->appends($req->only('keyword')); //append URL so only relevant search appear
 
          return view('home', compact('posts'));
@@ -121,7 +121,8 @@ class Post_Image_Controller extends Controller
          $id = Auth::user()->id;
 
          //select * from Pet where name LIKE %<string to search>%
-         $posts = Post_Image::where('owner_id', 'EQUALS', $id) -> paginate(10);
+         //$posts = Post_Image::where('owner_id', 'EQUALS', $id) -> paginate(10);
+         $posts = Post_Image::where('owner_id', '=', $id) -> paginate(10);
 
          return view('myposts', compact('posts'));
      }
