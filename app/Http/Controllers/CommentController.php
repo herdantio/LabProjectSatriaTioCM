@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     public function showComments($post_id){
-        //$comments = Comment::find($post_id);
+        //$comments = Comment::find($post_id);       //$comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
         $comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
-        //$comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
         return view('postdetail', compact('comments'));
     }
 
