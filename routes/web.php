@@ -24,7 +24,7 @@
 //    return view('register');
 //});
 
-//home page
+//home page, 2nd below is for testing
 //Route::get('/', 'PostImageController@home_getPage');
 Route::get('/', function () {
     return view('home');
