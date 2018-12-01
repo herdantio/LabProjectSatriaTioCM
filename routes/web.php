@@ -13,7 +13,7 @@
 
 
 //Route::get('/', function () {
-//    return view('home', 'PostImageController@homePosts');
+//    return view('home');
 //});
 
 //Route::get('/login', function () {
@@ -25,7 +25,10 @@
 //});
 
 //home page
-Route::get('/', 'PostImageController@home_getPage');
+//Route::get('/', 'PostImageController@home_getPage');
+Route::get('/', function () {
+    return view('home');
+});
 
 //accessible to all users
 Route::post('/register', 'UserController@register');
