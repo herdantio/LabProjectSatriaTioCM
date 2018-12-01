@@ -81,6 +81,16 @@
         </ul>
     </div>
     </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {{--<a class="navbar-brand">Test</a>--}}
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div id="navbar-clock"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container ptb-20">
         @yield('content')
@@ -91,6 +101,7 @@
 
     <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/profile.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/navbar-watch.js') }}"></script>
     <script src={{asset("js/jquery-3.2.1.slim.min.js")}} crossorigin="anonymous"></script>
     <script src={{asset("bootstrap/js/bootstrap.min.js")}}></script>
 </body>
