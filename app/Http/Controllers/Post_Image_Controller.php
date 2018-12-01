@@ -121,8 +121,8 @@ class Post_Image_Controller extends Controller
          $id = Auth::user()->id;
 
          //select * from Post_Image where name LIKE %<string to search>%
-         $posts = Post_Image::where('owner_id', 'EQUALS', $id) -> paginate(10);
-         //$posts = Post_Image::where('owner_id', '=', $id) -> paginate(10);
+         //$posts = Post_Image::where('owner_id', 'EQUALS', $id) -> paginate(10);
+         $posts = Post_Image::where('owner_id', '=', $id) -> paginate(10);
 
          return view('myposts', compact('posts'));
      }
