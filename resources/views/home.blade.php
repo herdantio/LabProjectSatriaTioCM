@@ -3,7 +3,12 @@
     <p>Welcome to my practice website!</p>
 
     @if(!Auth::guest())
-        <p>Welcome HOME, {{Auth::user()->name}}</p>
+        @if(Auth::user()->isAdmin == 1)
+            <p>Welcome HOME, Admin {{Auth::user()->name}}</p>
+        @else
+            <p>Welcome HOME, {{Auth::user()->name}}</p>
+        @endif
+
     @endif
 
 @endsection
