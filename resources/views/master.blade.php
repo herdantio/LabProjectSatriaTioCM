@@ -32,6 +32,14 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
+    <form class="form-inline input-group my-2 my-lg-0" style="width: 50%">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    </form>
+
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
         
