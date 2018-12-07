@@ -15,6 +15,19 @@ class Post_Image_Controller extends Controller
         return view('insertpost');
     }
      public function home_getPage(){
+
+         //remember me was on, login immediately
+         if(Cookie::get('user_email') && Cookie::get('user_password')){
+
+             $user = User::where('email', '=', Cookie::get('user_email'))
+                 ->where('password', '=', Cookie::get('user_password'))
+                 ->first();
+
+             if($user){
+                 Auth::login($user);
+             }
+         }
+
          $p = Post_Image::paginate(10);
          return view('home', compact('p'));
      }

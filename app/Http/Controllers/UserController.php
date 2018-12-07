@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function remembered(){
+
+    }
     public function login(Request $req){
+
         //Eloquent, Laravel equivalent of LINQ
         $user = User::where('email', '=', $req->email)
             ->where('password', '=', $req->password)
@@ -20,20 +25,34 @@ class UserController extends Controller
             //if user is not null/does exist in database, go to home page
             Auth::login($user);
 
-            //if admin returns to ... page (need to discuss)
+            //remember user if [remember me checkbox] was ticked
+            $remember = $req->get(remember);
+            if (Auth::attempt(array('email' => $req->email, 'password' => $req->password), true))
+            {
+                // The user is being remembered... save to cookie
+                Cookie::queue('user_email', $req->email, 60); //60 minutes for cookie to expire
+                Cookie::queue('user_password', $req->password, 60);
+            }
+
             if(Auth::user()->isAdmin == 1){    //or (Auth::user()->isAdmin == true)
                 return view('home');
             }
 
+            //not admin, login as member
             return view('home');
         }
 
         //if fail, return login view
-        return view('login');
+        return view('login')->with('message', 'Invalid Email/Password');
     }
     public function logout(){
         if(Auth::user()){
             Auth::logout();
+
+            //delete cookies
+            Cookie::queue(Cookie::forget('user_email'));
+            Cookie::queue(Cookie::forget('user_password'));
+
             return view('home');
         }
     }
