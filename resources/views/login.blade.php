@@ -99,8 +99,11 @@
                         </div>
                         <input type="password" class="form-control" name="password" id="exampleInputPassword1" aria-describedby="basic-addon2" placeholder="Enter Password">
                     </div>
-
                     <br/>
+                        <div class="form-group">
+                            <input type="checkbox" class="form-check-label" name="remember" value="remember" id="exampleInputPassword1" aria-describedby="basic-addon2">   Remember Me
+                        </div>
+
                     <div class="form-group">
                         <label class="form-check-label" for="exampleCheck1">Doesn't Have An Account?</label><a href="#"> Register Here</a>
                     </div>
