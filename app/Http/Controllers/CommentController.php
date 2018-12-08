@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Post_Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,9 +11,13 @@ class CommentController extends Controller
 {
     public function showComments($post_id){
         //$comments = Comment::find($post_id);
-        $comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
+        //$comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
+        $post = Post_Image::where('id', '=', $post_id);
         $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
-        return view('postdetail', compact('comments'));
+
+        $data = ['post_data' => $post, 'comments_data' => $comments];
+
+        return view('postdetail', compact('data'));
     }
 
     public function addComment(Request $req, $post_id){
