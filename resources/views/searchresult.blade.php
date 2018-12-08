@@ -10,4 +10,6 @@
         @endif
     @endif
 
+    <h2>Showing search result for "[something]"</h2>
+
 @endsection

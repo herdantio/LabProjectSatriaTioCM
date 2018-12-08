@@ -127,7 +127,7 @@ class Post_Image_Controller extends Controller
          $posts = Post_Image::where('title', 'LIKE', '%'.$search.'%', 'AND', 'caption', 'LIKE', '%'.$search.'%') -> paginate(10);
          $posts->appends($req->only('keyword')); //append URL so only relevant search appear
 
-         return view('home', compact('posts'));
+         return view('searchresult', compact('posts'));
      }
 
      public function myposts_getPage(){

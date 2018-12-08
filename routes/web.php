@@ -11,19 +11,6 @@
 |
 */
 
-
-//Route::get('/', function () {
-//    return view('home');
-//});
-
-//Route::get('/login', function () {
-//    return view('login');
-//});
-
-//Route::get('/register', function () {
-//    return view('register');
-//});
-
 //home page, 2nd below is for testing
 //Route::get('/', 'PostImageController@home_getPage');
 Route::get('/', function () {
@@ -45,7 +32,8 @@ Route::post('/insertpost', 'Post_Image_Controller@postImage');
 //Route::get('/updatepost/{id}','Post_Image_Controller@edit');
 //Route::put('/updatepost/{id}','Post_Image_Controller@updateImage');
 
-Route::get('/postdetail/{post_id}', 'Post_Image_Controller@viewDetail');
+//Route::get('/postdetail/{post_id}', 'Post_Image_Controller@viewDetail');
+Route::get('/postdetail/{post_id}', 'CommentControlelr@showComments');
 Route::get('/deletepost/{post_id}', 'Post_Image_Controller@deleteImage');
 Route::post('/postdetail/{post_id}', 'CommentController@addComment');
 
