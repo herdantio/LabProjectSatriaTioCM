@@ -26,7 +26,8 @@ class UserController extends Controller
             Auth::login($user);
 
             //remember user if [remember me checkbox] was ticked
-            $remember = $req->get(remember);
+            $remember = $req->remember;
+
             if (Auth::attempt(array('email' => $req->email, 'password' => $req->password), true))
             {
                 // The user is being remembered... save to cookie
