@@ -12,7 +12,7 @@ class CommentController extends Controller
     public function showComments($post_id){
         //$comments = Comment::find($post_id);
         //$comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
-        $post = Post_Image::where('id', '=', $post_id);
+        $post = Post_Image::where('id', '=', $post_id)->first();
         $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
 
         $data = ['post_data' => $post, 'comments_data' => $comments];
