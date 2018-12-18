@@ -12,10 +12,10 @@
 */
 
 //home page, 2nd below is for testing
-//Route::get('/', 'PostImageController@home_getPage');
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'Post_Image_Controller@home_getPage');
+//Route::get('/', function () {
+//    return view('home');
+//});
 
 //accessible to all users
 Route::post('/register', 'UserController@register');
