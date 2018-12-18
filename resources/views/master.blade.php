@@ -33,7 +33,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <form class="form-inline input-group my-2 my-lg-0" action="POST" style="width: 50%">
+    <form class="form-inline input-group my-2 my-lg-0" action="" method="POST" style="width: 50%">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
