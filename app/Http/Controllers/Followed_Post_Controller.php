@@ -23,4 +23,16 @@ class Followed_Post_Controller extends Controller
 
         return view('followedposts', compact('posts'));
     }
+
+    public function followAPost($post_id){
+        //add new followed post row
+
+        return redirect()->back();
+    }
+
+    public function unfollowAPost($post_id){
+        //find followed post row that has same post id and user id, and delete it
+
+        return redirect()->back();
+    }
 }
