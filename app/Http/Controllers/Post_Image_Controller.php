@@ -122,7 +122,8 @@ class Post_Image_Controller extends Controller
 
      public function search(Request $req){
          //search post images by title or description in home page
-         $search = $req->get('keyword');
+//         $search = $req->get('keyword');
+         $search = $req->keyword;
 
          //select * from Post_Image where name LIKE %<string to search>%
          $posts = Post_Image::where('title', 'LIKE', '%'.$search.'%', 'AND', 'caption', 'LIKE', '%'.$search.'%') -> paginate(10);

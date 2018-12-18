@@ -40,7 +40,8 @@ class UserController extends Controller
             }
 
             //not admin, login as member
-            return view('home');
+            return redirect('/');
+//            return view('home');
         }
 
         //if fail, return login view
