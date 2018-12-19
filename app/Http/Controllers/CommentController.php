@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Post_Image;
+use App\User;
+use App\Category;
+use App\Followed_Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

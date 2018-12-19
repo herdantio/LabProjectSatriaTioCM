@@ -33,7 +33,7 @@ Route::post('/insertpost', 'Post_Image_Controller@postImage');
 //Route::put('/updatepost/{id}','Post_Image_Controller@updateImage');
 
 //Route::get('/postdetail/{post_id}', 'Post_Image_Controller@viewDetail');
-Route::get('/postdetail/{post_id}', 'CommentController@showDetail_getPage');
+Route::get('/postdetail/{post_id}', 'CommentController@showComments');
 Route::get('/deletepost/{post_id}', 'Post_Image_Controller@deleteImage');
 Route::post('/postdetail/{post_id}', 'CommentController@addComment');
 
