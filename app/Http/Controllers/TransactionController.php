@@ -15,7 +15,7 @@ class TransactionController extends Controller
         $headers = Header_Transaction::getAll();
 
         foreach($headers as $h){
-            $h["detail"] = Detail_Transaction::where('header_id', 'EQUALS', $h->id);// -> paginate(10);
+            $h["detail"] = Detail_Transaction::where('header_id', '=', $h->id);// -> paginate(10);
         }
 
         return view('viewalltransactions', compact('headers'));

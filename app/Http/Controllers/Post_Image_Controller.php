@@ -130,7 +130,8 @@ class Post_Image_Controller extends Controller
          $search = $req->keyword;
 
          //select * from Post_Image where name LIKE %<string to search>%
-         $posts = Post_Image::where('title', 'LIKE', '%'.$search.'%', 'AND', 'caption', 'LIKE', '%'.$search.'%') -> paginate(10);
+         //$posts = Post_Image::where('title', 'LIKE', '%'.$search.'%', 'AND', 'caption', 'LIKE', '%'.$search.'%') -> paginate(10);
+         $posts = Followed_Post::where([['title', 'LIKE', '%'.$search.'%'], ['caption', 'LIKE', '%'.$search.'%']])->paginate(10);
          $posts->appends($req->only('keyword')); //append URL so only relevant search appear
 
          return view('searchresult', compact('posts'));
@@ -146,7 +147,7 @@ class Post_Image_Controller extends Controller
          return view('myposts', compact('posts'));
      }
 
-     public function viewDetail($post_id){
+     public function viewDetail($post_id){ //same as showComment function in post_image_controller
          $post = Post_Image::find($post_id)->first();
          $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
          $owner_id = $post->owner_id;
@@ -156,7 +157,7 @@ class Post_Image_Controller extends Controller
 
          //if already followed
          $user_id = Auth::user()->id;
-         $fpost = Followed_Post::where('post_id', '=', $post_id, '&', 'follower_id', '=', $user_id)->first();
+         $fpost = Followed_Post::where([['post_id', '=', $post_id], ['follower_id', '=', $user_id]])->first()
          $followed = true;
          if($fpost == null){
              $followed = false;
