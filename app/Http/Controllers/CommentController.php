@@ -9,14 +9,31 @@ use App\Category;
 use App\Followed_Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
+    public function test(){
+//        $result = DB::table('users')
+//                ->join('comments','comments.commenter_id','=','users.id')
+//                ->select('users.name','comments.*')
+//                ->get();
+        $comments = DB::table('users')
+            ->join('comments','comments.commenter_id','=','users.id')
+            ->select('comments.id','users.name','users.profile_picture','comment_text')
+            ->get();
+        return $comments;
+    }
+
     public function showComments($post_id){
         //$comments = Comment::find($post_id);
         //$comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
         $post = Post_Image::find($post_id)->first();
-        $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
+//        $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
+        $comments = DB::table('users')
+            ->join('comments','comments.commenter_id','=','users.id')
+            ->select('comments.id','users.name','users.profile_picture','comment_text')
+            ->get();
         $owner_id = $post->owner_id;
         $owner_name = User::where('id', '=', $owner_id)->first();
         $category_id = $post->category_id;

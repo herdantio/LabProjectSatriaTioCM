@@ -53,11 +53,19 @@
                                     <div class="row comments-body">
                                         @foreach($data['comments_data'] as $comment)
                                             <div class="row comments-detail">
+                                                {{--<div class="col-md-2">--}}
+                                                    {{--<img class="comment-img" src="{{asset("UsersUploadedImage/").'/'.$data['post_data']->picture}}"/>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="col">--}}
+                                                    {{--<h5>{{$comment->commenter_id}}</h5>--}}
+                                                    {{--<p>{{$comment->comment_text}}</p>--}}
+                                                    {{--<p>{{$comment}}</p>--}}
+                                                {{--</div>--}}
                                                 <div class="col-md-2">
-                                                    <img class="comment-img" src="{{asset("UsersUploadedImage/").'/'.$data['post_data']->picture}}"/>
+                                                    <img class="comment-img" src="{{asset("UsersUploadedImage/").'/'.$comment->profile_picture}}"/>
                                                 </div>
                                                 <div class="col">
-                                                    <h5>{{$comment->commenter_id}}</h5>
+                                                    <h5>{{$comment->name}}</h5>
                                                     <p>{{$comment->comment_text}}</p>
                                                 </div>
                                             </div>
@@ -65,14 +73,14 @@
                                     </div>
                                 </div>
 
+                                <br/>
                                 @if(!Auth::guest())
                                 <div class="jumbotron-comment">
                                     <form method="POST">
 
                                         <div class="form-group">
                                             <p>Add your comment...</p>
-                                            <textarea name="comment" class="form-control" placeholder="Write your comment here...">
-                                            </textarea>
+                                            <textarea name="comment" class="form-control" placeholder="Write your comment here..."></textarea>
                                         </div>
 
                                         <div class="comment-btn">

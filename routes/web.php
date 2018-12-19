@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/test','CommentController@test');
 //home page, 2nd below is for testing
 Route::get('/', 'Post_Image_Controller@home_getPage');
 //Route::get('/', function () {
