@@ -16,10 +16,10 @@
                                 <div class="jumbotron-header">
                                     <div class="row">
                                         <div class="col">
-                                            <h4>{{$data['post_data']->owner_id}}</h4>
+                                            <h4>{{$data['owner_name']->name}}</h4>
                                             <br/>
                                             <h1>{{$data['post_data']->title}}</h1>
-                                            <h5>{{$data['post_data']->caption}}</h5>
+                                            <h5>{{$data['category_name']->category_name}}</h5>
                                         </div>
                                         @if(!Auth::guest())
                                             <div class="col-md-5 btn-post">

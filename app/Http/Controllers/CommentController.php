@@ -20,7 +20,7 @@ class CommentController extends Controller
         $owner_id = $post->owner_id;
         $owner_name = User::where('id', '=', $owner_id)->first();
         $category_id = $post->category_id;
-        $category_name = Category::where('id', '=', $category_id);
+        $category_name = Category::where('id', '=', $category_id)->first();
 
         //if already followed
         $user_id = Auth::user()->id;
