@@ -19,7 +19,7 @@ class Followed_Category_Controller extends Controller
 
     public function followedCategories_getPage(){
         $user_id = Auth::user()->id;
-        $fcs = Followed_Category::where('user_id', '=', '$id');
+        $fcs = Followed_Category::where('user_id', '=', $user_id);
 
         return view('followedcategories', compact('fcs'));
     }

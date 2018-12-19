@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Followed_Post;
 use App\Post_Image;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,7 +15,8 @@ class Post_Image_Controller extends Controller
 {
      /*get*/public function insertPost_getPage(){
         //only redirects to insertpost page
-        return view('insertpost');
+        $c = Category::All();
+        return view('insertpost', compact('c'));
     }
      public function home_getPage(){
 
@@ -54,7 +57,8 @@ class Post_Image_Controller extends Controller
          $i->title = $req->title;
          $i->price = $req->caption;
          $i->title = $req->title;
-         $i->category = $req->category;
+         $i->caption = $req->caption;
+         $i->category_id = $req->category;
          $i->owner_id = $u->id;
          $i->price = $req->price;
 
@@ -143,9 +147,26 @@ class Post_Image_Controller extends Controller
      }
 
      public function viewDetail($post_id){
-         $post = Post_Image::find($post_id);
-         $comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
-         return view('postdetail', compact('post', 'comments'));
+         $post = Post_Image::find($post_id)->first();
+         $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
+         $owner_id = $post->owner_id;
+         $owner_name = User::where('id', '=', $owner_id)->first();
+         $category_id = $post->category_id;
+         $category_name = Category::where('id', '=', $category_id);
+
+         //if already followed
+         $user_id = Auth::user()->id;
+         $fpost = Followed_Post::where('post_id', '=', $post_id, '&', 'follower_id', '=', $user_id)->first();
+         $followed = true;
+         if($fpost == null){
+             $followed = false;
+         }
+
+         //pack everything inside
+         $data = ['post_data' => $post, 'comments_data' => $comments, 'owner_name'=> $owner_name,
+             'followed' => $followed, 'category_name' => $category_name];
+
+         return view('postdetail', compact('data'));
      }
 
 }
