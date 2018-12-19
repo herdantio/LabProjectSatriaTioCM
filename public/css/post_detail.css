@@ -10,6 +10,9 @@
     border-radius: 3%;
 }
 
+.btn-post{
+    float: left;
+}
 textarea{
     width: 100%;
 }
