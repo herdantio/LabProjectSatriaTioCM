@@ -39,6 +39,11 @@ class UserController extends Controller
                 return view('home');
             }
 
+            //add cookies to store cart data
+            Cookie::queue('cart', array(), 60);
+            Cookie::queue('total_price', 0, 60);
+            Cookie::queue('item_count', 0, 60);
+
             //not admin, login as member
             return redirect('/');
 //            return view('home');
@@ -54,6 +59,9 @@ class UserController extends Controller
             //delete cookies
             Cookie::queue(Cookie::forget('user_email'));
             Cookie::queue(Cookie::forget('user_password'));
+            Cookie::queue(Cookie::forget('cart'));
+            Cookie::queue(Cookie::forget('total_price'));
+            Cookie::queue(Cookie::forget('item_count'));
 
             return view('home');
         }
