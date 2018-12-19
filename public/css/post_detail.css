@@ -1,5 +1,26 @@
 #img-post{
     max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+}
+
+.jumbotron-image{
+    text-align: center;
+}
+.jumbotron{
+    border-radius: 3%;
+}
+
+textarea{
+    width: 100%;
+}
+
+.comment-btn{
+    text-align: center;
+}
+.comments-body{
+    background-color: white;
+}
+.comment-img{
+    max-width: 100%;
+    border-radius: 50%;
 }
