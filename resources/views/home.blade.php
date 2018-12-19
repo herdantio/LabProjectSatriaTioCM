@@ -13,22 +13,44 @@
 
             <div class="container">
                 <div class="row">
-                    @foreach ($p as $index => $post)
-                        <div class="col-md-2" class="post">
-                            <a href="/postdetail/{{$post->id}}">
-                                <img class="img-post" src="{{asset("UsersUploadedImage/").'/'.$post->picture}}"/>
-                                <h3>{{$post->title}}</h3>
-                                <p>{{$post->caption}}</p>
-                            </a>
-                        </div>
-                    @endforeach
-                    {{--@for($i=0;$i<5;$i++)--}}
-                        {{--<div class="col" class="post">--}}
-                            {{--<img class="img-post" src="{{asset("UsersUploadedImage/").'/'.$p[$i]['picture']}}"/>--}}
-                            {{--<h3>{{$p[$i]['title']}}</h3>--}}
-                            {{--<p>{{$p[$i]['caption']}}</p>--}}
+                    {{--@foreach ($p as $index => $post)--}}
+                        {{--<div class="col-md-2" class="post">--}}
+                            {{--<a href="/postdetail/{{$post->id}}">--}}
+                                {{--<img class="img-post" src="{{asset("UsersUploadedImage/").'/'.$post->picture}}"/>--}}
+                                {{--<h3>{{$post->title}}</h3>--}}
+                                {{--<p>{{$post->caption}}</p>--}}
+                            {{--</a>--}}
                         {{--</div>--}}
-                    {{--@endfor--}}
+                    {{--@endforeach--}}
+                    @for($i=0;$i<5;$i++)
+                        @if(!empty($p[$i]))
+
+                                <div class="col-md-2" class="post">
+                                    <a href="/postdetail/{{$p[$i]['id']}}">
+                                        <img class="img-post" src="{{asset("UsersUploadedImage/").'/'.$p[$i]['picture']}}"/>
+                                        <h3>{{$p[$i]['title']}}</h3>
+                                        <p>{{$p[$i]['caption']}}</p>
+                                    </a>
+                                </div>
+
+                        @endif
+                    @endfor
+
+                </div>
+                <div class="row">
+                    @for($i=5;$i<10;$i++)
+                        @if(!empty($p[$i]))
+
+                                <div class="col-md-2" class="post">
+                                    <a href="/postdetail/{{$p[$i]['id']}}">
+                                        <img class="img-post" src="{{asset("UsersUploadedImage/").'/'.$p[$i]['picture']}}"/>
+                                        <h3>{{$p[$i]['title']}}</h3>
+                                        <p>{{$p[$i]['caption']}}</p>
+                                    </a>
+                                </div>
+
+                        @endif
+                    @endfor
 
                 </div>
 
