@@ -157,7 +157,7 @@ class Post_Image_Controller extends Controller
 
          //if already followed
          $user_id = Auth::user()->id;
-         $fpost = Followed_Post::where([['post_id', '=', $post_id], ['follower_id', '=', $user_id]])->first()
+         $fpost = Followed_Post::where([['post_id', '=', $post_id], ['follower_id', '=', $user_id]])->first();
          $followed = true;
          if($fpost == null){
              $followed = false;

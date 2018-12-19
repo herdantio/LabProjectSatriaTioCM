@@ -27,7 +27,6 @@
 
                                 <div class="col-md-2" class="post">
                                     <a href="/postdetail/{{$p[$i]['id']}}">
-                                        {{--<p>{{$p[$i]['id']}}</p>--}}
                                         <img class="img-post" src="{{asset("UsersUploadedImage/").'/'.$p[$i]['picture']}}"/>
                                         <h3>{{$p[$i]['title']}}</h3>
                                         <p>{{$p[$i]['caption']}}</p>

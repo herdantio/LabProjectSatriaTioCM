@@ -77,8 +77,12 @@
                     <a class="nav-link" href="/profile">My Post</a>
                 </li>
                 <li class="nav-item">
-                    {{--<img class="nav-link" src={{ asset("UsersUploadedImage/bootstrap-stack.png") }} id="img-logo" class="img-thumbnail">--}}
-                    <a class="nav-link" href="/profile">{{Auth::user()->name}}</a>
+                    <div class="container-fluid">
+                        <div class="row">
+{{--                            <img class="nav-link" src={{ asset("UsersUploadedImage/")."/".Auth::user()->profile_picture }} id="img-logo" class="img-thumbnail">--}}
+                            <a class="nav-link" href="/profile">{{Auth::user()->name}}</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
