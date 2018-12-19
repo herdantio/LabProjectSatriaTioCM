@@ -23,12 +23,12 @@
                                         </div>
                                         @if(!Auth::guest())
                                             <div class="col-md-5 btn-post">
-                                                @if(Auth::user()->isAdmin()
+                                                @if(Auth::user()->isAdmin
                                                 || Auth::user()->owner_id!=$data['post_data']->owner_id)
                                                 <button class="btn btn-primary">Add to cart</button>
                                                 @endif
 
-                                                @if(Auth::user()->isAdmin()
+                                                @if(Auth::user()->isAdmin
                                                 || Auth::user()->owner_id==$data['post_data']->owner_id)
                                                 <button class="btn btn-primary">Delete Post</button>
                                                 @endif
@@ -45,6 +45,26 @@
                                     <h5>{{$data['post_data']->caption}}</h5>
                                 </div>
                                 <br/>
+
+                                <div class="container-fluid jumbotron-comment-list">
+                                    <div class="row comments-header">
+                                        <p>Comments</p>
+                                    </div>
+                                    <div class="row comments-body">
+                                        @foreach($data['comments_data'] as $comment)
+                                            <div class="row comments-detail">
+                                                <div class="col-md-2">
+                                                    <img class="comment-img" src="{{asset("UsersUploadedImage/").'/'.$data['post_data']->picture}}"/>
+                                                </div>
+                                                <div class="col">
+                                                    <h5>{{$comment->commenter_id}}</h5>
+                                                    <p>{{$comment->comment_text}}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
                                 @if(!Auth::guest())
                                 <div class="jumbotron-comment">
                                     <form method="POST">
