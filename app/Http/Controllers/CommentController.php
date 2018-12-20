@@ -33,7 +33,7 @@ class CommentController extends Controller
         //$comments = Comment::find($post_id);
         //$comments = Comment::where('post_id', 'EQUALS', $post_id) -> paginate(10);
         $post = Post_Image::find($post_id)->first();
-//        $comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
+        //$comments = Comment::where('post_id', '=', $post_id) -> paginate(10);
         $comments = DB::table('users')
             ->join('comments','comments.commenter_id','=','users.id')
             ->select('comments.id','users.name','users.profile_picture','comment_text')
@@ -54,8 +54,7 @@ class CommentController extends Controller
             }
         }
 
-
-        //pack everything inside
+        //pack everything inside data
         $data = ['post_data' => $post, 'comments_data' => $comments, 'owner_name'=> $owner_name,
             'followed' => $followed, 'category_name' => $category_name];
 
