@@ -12,7 +12,7 @@ class TransactionController extends Controller
 {
     public function viewAll_getPage(){
 
-        $headers = Header_Transaction::getAll();
+        $headers = Header_Transaction::Paginate(10);
 
         foreach($headers as $h){
             $h["detail"] = Detail_Transaction::where('header_id', '=', $h->id);// -> paginate(10);
