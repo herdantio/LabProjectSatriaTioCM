@@ -76,11 +76,11 @@
                                 <br/>
                                 @if(!Auth::guest())
                                 <div class="jumbotron-comment">
-                                    <form method="POST">
+                                    <form method="POST" action="/postdetail/{{$data['post_data']->id}}">
 
                                         <div class="form-group">
                                             <p>Add your comment...</p>
-                                            <textarea name="comment" class="form-control" placeholder="Write your comment here..."></textarea>
+                                            <textarea name="comment_text" class="form-control" placeholder="Write your comment here..."></textarea>
                                         </div>
 
                                         <div class="comment-btn">

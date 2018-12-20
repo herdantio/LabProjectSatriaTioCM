@@ -18,10 +18,14 @@ class CommentController extends Controller
 //                ->join('comments','comments.commenter_id','=','users.id')
 //                ->select('users.name','comments.*')
 //                ->get();
-        $comments = DB::table('users')
-            ->join('comments','comments.commenter_id','=','users.id')
+
+//        $comments = DB::table('users')
+//            ->join('comments','comments.commenter_id','=','users.id')
+//            ->select('comments.id','users.name','users.profile_picture','comment_text')
+//            ->get();
+        $comments = User::all()->leftJoin('comments','comments.commenter_id','=','users.id')
             ->select('comments.id','users.name','users.profile_picture','comment_text')
-            ->get();
+            ->first();
         return $comments;
     }
 
@@ -40,12 +44,16 @@ class CommentController extends Controller
         $category_name = Category::where('id', '=', $category_id)->first();
 
         //if already followed
-        $user_id = Auth::user()->id;
-        $fpost = Followed_Post::where([['post_id', '=', $post_id], ['follower_id', '=', $user_id]])->first();
-        $followed = true;
-        if($fpost == null){
-            $followed = false;
+        $followed = null;
+        if(!Auth::guest()){
+            $user_id = Auth::user()->id;
+            $fpost = Followed_Post::where([['post_id', '=', $post_id], ['follower_id', '=', $user_id]])->first();
+            $followed = true;
+            if($fpost == null){
+                $followed = false;
+            }
         }
+
 
         //pack everything inside
         $data = ['post_data' => $post, 'comments_data' => $comments, 'owner_name'=> $owner_name,
