@@ -11,13 +11,16 @@ class Followed_Category_Controller extends Controller
         //follows and unfollows all categories set after [save changes] button is pressed in followedcategories view
         $user_id = Auth::user()->id;
 
-        $fcs = Category::where ('user_id', '=', $user_id);
+        //get all previous followed categories
+        $fcs = Followed_Category::where ('follower_id', '=', $user_id);
 
+        //delete previously followed categories
         foreach ($fcs as $f) {
             $f->delete(); //refresh
         }
 
-        $fcs = User::all()->followed_categories();
+        //update with new followed categories
+        //$fcs = User::all()->followed_categories(); //???
 
         return redirect()->back();
     }

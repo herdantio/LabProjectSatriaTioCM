@@ -27,9 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /*
-    public function followed_categories (){
-        return $this->belongsToMany('App\Category')->using('App\Followed_Category');
+    public function Followed_Category (){
+        return $this->hasMany('App\Category', 'follower_id');
     }
-    */
+
 }

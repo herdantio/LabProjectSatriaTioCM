@@ -39,6 +39,8 @@ Route::get('/deletepost/{post_id}', 'Post_Image_Controller@deleteImage');
 Route::post('/postdetail/{post_id}', 'CommentController@addComment');
 
 Route::get('/followedposts/', 'Followed_Post_Controller@followedposts_getPage');
+Route::get('/followedcategories', 'Followed_Category_Controller@followedCategories_getPage');
+Route::post('/followedcategories', 'Followed_Category_Controller@followCategories');
 
 //admin only pages
 Route::get('/manageusers', 'UserController@manageUsers') -> middleware('admin');
